@@ -1,14 +1,15 @@
-SELECT author, title, 
-ROUND(
-    IF(
-        author = 'Булгаков М.А.', 
-        ROUND(price-(price/100*10),2),
+SELECT author,
+    title,
+    ROUND(
         IF(
-            author = 'Есенин С.А.', ROUND(price-(price/100*5),2), price
-        )
-        )
-    ,2) AS new_price
-FROM book
-
-
-
+            author = 'Булгаков М.А.',
+            ROUND(price -(price / 100 * 10), 2),
+            IF(
+                author = 'Есенин С.А.',
+                ROUND(price -(price / 100 * 5), 2),
+                price
+            )
+        ),
+        2
+    ) AS new_price
+FROM book;
