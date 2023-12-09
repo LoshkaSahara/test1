@@ -1,15 +1,7 @@
-SELECT author,
-    title,
-    ROUND(
-        IF(
-            author = 'Булгаков М.А.',
-            ROUND(price -(price / 100 * 10), 2),
-            IF(
-                author = 'Есенин С.А.',
-                ROUND(price -(price / 100 * 5), 2),
-                price
-            )
-        ),
-        2
-    ) AS new_price
-FROM book;
+SELECT title,
+    author
+FROM book
+WHERE (
+        price BETWEEN 540.50 AND 800
+    )
+    AND amount IN('2', '3', '5', '7');
