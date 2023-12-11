@@ -1,5 +1,6 @@
-SELECT author AS Автор,
-    COUNT(amount) AS Различных_книг,
-    SUM(amount) AS Количество_Экземпляров
+SELECT author,
+    MIN(price) AS Минимальная_цена,
+    MAX(price) AS Максимальная_цена,
+    AVG(price) AS Средняя_цена
 FROM book
 GROUP BY author;
