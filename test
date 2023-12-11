@@ -3,7 +3,9 @@ SELECT author,
     price
 FROM book
 WHERE price <= (
-        SELECT AVG(price)
-        FROM book
+        (
+            SELECT MIN(price)
+            FROM book
+        ) + 150
     )
-ORDER BY price DESC;
+ORDER BY price;
