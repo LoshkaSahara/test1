@@ -1,6 +1,5 @@
-SELECT title,
-    author
+SELECT author AS Автор,
+    COUNT(amount) AS Различных_книг,
+    SUM(amount) AS Количество_Экземпляров
 FROM book
-WHERE title LIKE "_% _%"
-    AND author LIKE "%С.%"
-ORDER BY title;
+GROUP BY author;
